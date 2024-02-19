@@ -5,55 +5,111 @@ using UnityEngine;
 
 public class ShapeGenerator : MonoBehaviour
 {
-    public GameObject blockPrefab; // 方块的预设
+    public GameObject[] blockPrefab; // 方块的预设
+    private List<Vector3[]> shapes = new List<Vector3[]>(); // 存储所有形状的列表
+    private GameObject currentShape; // 当前形状的实例
 
     void Start()
     {
-        GenerateTShape();
+        InitializeShapes();
+        GenerateRandomShape();
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            RotateShape();
+        }
+    }
+    void RotateShape()
+    {
+        if (currentShape != null)
+        {
+            currentShape.transform.Rotate(0, 0, 90);
+        }
     }
 
-    void GenerateTShape()
+
+    void InitializeShapes()
     {
-        var positions = new Vector3[]
+        // T形状
+        shapes.Add(new Vector3[]
         {
-           new Vector3(0, 0, 0), 
-           new Vector3(-1, 0, 0),
-           new Vector3(1, 0, 0), 
-           new Vector3(0, 1, 0), 
-        };
+            new Vector3(-1, 0, 0),
+            new Vector3(0, 0, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(0, 1, 0)
+        });
 
-        // T形状的中心
-        // Vector3 centerPosition = new Vector3(0, 0, 0);
-
-        // 实例化中心方块
-        Instantiate(blockPrefab,   new Vector3(0, 0, 0), Quaternion.identity, transform);
-        // 实例化T形状的其他部分
-        Instantiate(blockPrefab,   new Vector3(-1, 0, 0), Quaternion.identity, transform); // 左侧
-        Instantiate(blockPrefab,   new Vector3(1, 0, 0), Quaternion.identity, transform); // 右侧
-        Instantiate(blockPrefab,   new Vector3(0, 1, 0), Quaternion.identity, transform); // 顶部
-        //随机调用四个旋转中的一个
-    }
-
-    void GenerateIShape()
-    {
-        var positions = new Vector3[]
+        // I形状
+        shapes.Add(new Vector3[]
         {
-           new Vector3(0, 0, 0), 
             new Vector3(0, 1, 0),
-            new Vector3(0, 2, 0),
-            new Vector3(0, 3, 0),
-        };
+            new Vector3(0, 0, 0),
+            new Vector3(0, -1, 0),
+            new Vector3(0, -2, 0)
+        });
+        //J形状
+        shapes.Add(new Vector3[]
+        {
+            new Vector3(-1, 0, 0),
+            new Vector3(0, 0, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(-1, -1, 0)
+        });
+        //L形状
+        shapes.Add(new Vector3[]
+        {
+            new Vector3(-1, 0, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(1, 1, 0)
+        });
+        //  0形状
+        shapes.Add(new Vector3[]
+        {
+            new Vector3(-0.5f, 0.5f, 0),
+            new Vector3(0.5f, 0.5f, 0),
+            new Vector3(-0.5f, -0.5f, 0),
+            new Vector3(0.5f, -0.5f, 0)
+        });
         
-        // T形状的中心
-        // Vector3 centerPosition = new Vector3(0, 0, 0);
-
-        // 实例化中心方块
-        Instantiate(blockPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform);
-
-        // 实例化T形状的其他部分
-        Instantiate(blockPrefab,  new Vector3(0, 1, 0), Quaternion.identity, transform); // 左侧
-        Instantiate(blockPrefab,  new Vector3(0, 2, 0), Quaternion.identity, transform); // 右侧
-        Instantiate(blockPrefab,  new Vector3(0, 3, 0), Quaternion.identity, transform); // 顶部
-        //随机调用四个旋转中的一个
+        //  s形状
+        shapes.Add(new Vector3[]
+        {
+            new Vector3(0, 0, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(-1, 1, 0),
+            new Vector3(0, 1, 0)
+        });
+        //  z形状
+        shapes.Add(new Vector3[]
+        {
+            new Vector3(-1, 0, 0),
+            new Vector3(0, 0, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(1, 1, 0)
+        });
     }
+
+    void GenerateRandomShape()
+    {
+        int shapeIndex = Random.Range(0, shapes.Count); // 随机选择一个形状
+        Vector3[] selectedShape = shapes[shapeIndex]; // 获取选中形状的坐标数组
+
+        if (currentShape != null)
+        {
+            Destroy(currentShape); // 销毁当前形状（如果有）
+        }
+
+        currentShape = new GameObject("Shape"); // 创建一个新的形状对象
+
+        foreach (var position in selectedShape)
+        {
+            int prefabIndex = Random.Range(0, blockPrefab.Length); // 随机选择一个预设的索引
+            GameObject prefabToInstantiate = blockPrefab[prefabIndex]; // 获取随机选择的预设
+            Instantiate(prefabToInstantiate, position, Quaternion.identity, currentShape.transform);
+        }
+    }
+
 }
