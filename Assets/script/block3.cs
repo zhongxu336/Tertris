@@ -106,7 +106,7 @@ public class ShapeGenerator : MonoBehaviour
 
         foreach (var position in selectedShape)
         {
-            int prefabIndex = Random.Range(0, blockPrefab.Length); // 随机选择一个预设的索引
+            int prefabIndex = shapeIndex; // 随机选择一个预设的索引
             GameObject prefabToInstantiate = blockPrefab[prefabIndex]; // 获取随机选择的预设
             Instantiate(prefabToInstantiate, position, Quaternion.identity, currentShape.transform);
         }
