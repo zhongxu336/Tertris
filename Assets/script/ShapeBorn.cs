@@ -119,10 +119,13 @@ public class ShapeGenerator : MonoBehaviour
         //附加ShapeMover组件
         ShapeMover mover = currentShape.AddComponent<ShapeMover>();
         mover.FallSpeed = fallSpeed; // 使用Inspector中设置的值
-
+        // 获取GridManager引用
+        GridManager gridManager = GetComponent<GridManager>();
+        // 计算形状应该出现的位置
+        float startX = gridManager.width / 2.0f - 0.5f;
+        float startY = gridManager.height - 2;
         //  设置形状出现的初始位置
-        // 假设游戏界面的宽度为10个单位，形状应该出现在顶部中央
-        currentShape.transform.position = new Vector3(0.0f,20.0f,0);
+        currentShape.transform.position = new Vector3(startX, startY, 0);
     }
         Vector3 CalculateCenter(Vector3[] shapePositions)
         {
