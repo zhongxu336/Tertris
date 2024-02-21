@@ -9,11 +9,11 @@ public class ShapeGenerator : MonoBehaviour
     private List<Vector3[]> shapes = new List<Vector3[]>(); // 存储所有形状的列表
     private GameObject currentShape; // 当前形状的实例
     public float fallSpeed = 1.0f; 
-    private GridManager gridManager;
+    //private GridManager gridManager;
 
     void Start()
     {
-        gridManager = FindObjectOfType<GridManager>();
+        //gridManager = GetComponent<GridManager>();
         InitializeShapes();
         GenerateRandomShape();
     }
@@ -122,7 +122,7 @@ public class ShapeGenerator : MonoBehaviour
 
         //  设置形状出现的初始位置
         // 假设游戏界面的宽度为10个单位，形状应该出现在顶部中央
-        currentShape.transform.position = new Vector3(5.0f,20.0f,0);
+        currentShape.transform.position = new Vector3(0.0f,20.0f,0);
     }
         Vector3 CalculateCenter(Vector3[] shapePositions)
         {

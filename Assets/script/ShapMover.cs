@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class ShapeMover : MonoBehaviour
 {
-   public float FallSpeed { get; set; }// 形状的下落速
-   private float lastFallTime; // 上次形状下落的时间
-    private GridManager gridManager; // 变量声明...
-    void Start() {
-        gridManager = FindObjectOfType<GridManager>(); // 获取GridManager的实例
-    }
-
+   public float FallSpeed { get; set; } // 形状的下落速
+    
+    private float lastFallTime; // 上次形状下落的时间
+    
 
     void Update()
     {
@@ -29,18 +26,8 @@ public class ShapeMover : MonoBehaviour
 
     void MoveShapeDown()
     {
-        
         // 将形状向下移动
-        void MoveShapeDown() {
-            // 假设移动前的位置检查
-            if (gridManager.AddShapeToGrid(this.gameObject, transform.position + new Vector3(0, -1, 0))) {
-                // 移动形状
-                transform.position += new Vector3(0, -1, 0);
-            } else {
-                // 如果新位置无效，则处理停止下落等
-            }
-        }
-        
+        transform.position += new Vector3(0, -1, 0);
 
         // 检查是否触底或触碰到其他形状
         if (!IsValidGridPos())
