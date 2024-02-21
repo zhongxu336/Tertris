@@ -606,6 +606,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1944293763}
   - component: {fileID: 1944293764}
+  - component: {fileID: 1944293765}
+  - component: {fileID: 1944293766}
   m_Layer: 0
   m_Name: BlockManager
   m_TagString: Untagged
@@ -648,6 +650,31 @@ MonoBehaviour:
   - {fileID: 4829155197093849659, guid: 9619ae96c759a4fb888ef1ac4c1cf4de, type: 3}
   - {fileID: 1870519554485779762, guid: fcd3a7ad2a46c4dfb881e864a26bc592, type: 3}
   - {fileID: 4359177370833400372, guid: 2536dfaba1db947dcbf0d1cfeb0f1449, type: 3}
+  fallSpeed: 0.5
+--- !u!114 &1944293765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944293761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4c224d0b1bc4b2e9340e4e80b9adf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1944293766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944293761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451ef6f30cd5a408191816c9e20944fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &685046239119884932
 PrefabInstance:
   m_ObjectHideFlags: 0
