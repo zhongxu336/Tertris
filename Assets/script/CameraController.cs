@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GridManager gridManager; // 引用GridManager脚本
+     
 
     void Start()
     {
@@ -11,12 +11,12 @@ public class CameraController : MonoBehaviour
 
     void AdjustCamera()
     {
-        if (gridManager == null) return;
+        if (GridManager.Instance == null) return;
 
         // 获取网格的宽度和高度
-        float width = gridManager.width;
-        float height = gridManager.height;
-        float cellSize = gridManager.cellSize;
+        float width = GridManager.Instance.width;
+        float height = GridManager.Instance.height;
+        float cellSize = GridManager.Instance.cellSize;
 
         // 计算摄像机需要的Size值
         float screenAspect = (float)Screen.width / (float)Screen.height;

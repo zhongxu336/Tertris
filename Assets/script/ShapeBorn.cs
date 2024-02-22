@@ -19,7 +19,7 @@ public class ShapeGenerator : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) )
         {
             RotateShape();
         }
@@ -120,10 +120,10 @@ public class ShapeGenerator : MonoBehaviour
         ShapeMover mover = currentShape.AddComponent<ShapeMover>();
         mover.FallSpeed = fallSpeed; // 使用Inspector中设置的值
         // 获取GridManager引用
-        GridManager gridManager = GetComponent<GridManager>();
+        
         // 计算形状应该出现的位置
-        float startX = gridManager.width / 2.0f;
-        float startY = gridManager.height -2 ;
+        float startX = GridManager.Instance.width / 2.0f;
+        float startY = GridManager.Instance.height -2 ;
         //  设置形状出现的初始位置
         currentShape.transform.position = new Vector3(startX, startY, 0);
     }

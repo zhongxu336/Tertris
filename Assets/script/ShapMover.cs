@@ -2,55 +2,74 @@ using UnityEngine;
 
 public class ShapeMover : MonoBehaviour
 {
-   public float FallSpeed { get; set; } // 形状的下落速
-    
+    public float FallSpeed { get; set; } // 形状的下落速
     private float lastFallTime; // 上次形状下落的时间
-    
+    private float lastMoveTime; // 上次形状移动的时间
+    public float MoveInterval = 0.1f; // 按键移动间隔，可以根据需要调整
 
-    void Update()
+    
+    
+    void Awake() {
+        FallSpeed = 1.0f; // 根据需要调整下落速度
+    }
+    void FixedUpdate()
     {
         // 用户输入，向下加速
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            // 尝试将形状下移
-            MoveShapeDown();
-            // 更新最后下落时间，使形状立即响应下一次下落
-            lastFallTime = Time.time;
+           
+            MoveShape(Vector3.down * GridManager.Instance.cellSize);
+            lastFallTime = Time.time; // 重置下落时间
         }
         // 自动下落
         else if (Time.time - lastFallTime > FallSpeed)
         {
-            MoveShapeDown();
+            MoveShape(Vector3.down * GridManager.Instance.cellSize);
+            lastFallTime = Time.time; // 重置下落时间
+        }
+        
+        // 左移动
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            MoveShape(Vector3.left * GridManager.Instance.cellSize);
+        }
+
+        // 右移动
+        if (Input.GetKey(KeyCode.RightArrow)) {
+            MoveShape(Vector3.right * GridManager.Instance.cellSize);
         }
     }
 
-    void MoveShapeDown()
-    {
-        // 将形状向下移动
-        transform.position += new Vector3(0, -1, 0);
 
-        // 检查是否触底或触碰到其他形状
-        if (!IsValidGridPos())
-        {
-            // 如果移动无效，则将形状回移
-            transform.position -= new Vector3(0, -1, 0);
+    void MoveShape(Vector3 direction) {
+        
+        transform.position += direction; // 使用Time.fixedDeltaTime确保平滑移动;
 
-            // TODO: 将形状添加到网格中，这将在网格管理脚本中处理
-
-            // 禁用此脚本，停止形状的下落
-            enabled = false;
-
-            // TODO: 通知游戏控制器生成新的形状
+        if (!IsValidGridPos()) {
+            // 如果移动无效，撤回移动
+            transform.position -= direction; // 使用Time.fixedDeltaTime确保平滑移动;
+        } else {
+            // 更新最后移动时间，使形状响应下一次移动
+            lastFallTime = Time.time;
         }
-
-        lastFallTime = Time.time;
     }
 
-    bool IsValidGridPos()
-    {
-        // TODO: 检查新位置是否有效（是否在游戏区域内且没有与现有方块冲突）
-        // 这需要与网格管理脚本交互，检查每个方块的新位置是否都是空的
-        return true; // 暂时返回true，后续需要实现真正的检查逻辑
+    bool IsValidGridPos() {
+        if (GridManager.Instance == null) {
+            Debug.LogError("GridManager is not found!");
+            return false;
+        }
+        foreach (Transform child in transform) {
+            Vector3Int gridPosition = GridManager.Instance.WorldToGridPosition(child.position);
+
+            // 检查是否在画面范围内
+            if (!GridManager.Instance.IsPositionInsideGrid(gridPosition) || !GridManager.Instance.IsCellEmpty(gridPosition)) {
+                return false; // 移动无效
+            }
+            
+        }
+        return true;// 移动有效
+       
     }
+   
 }
 

@@ -2,11 +2,23 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    public static GridManager Instance { get; private set; }
     public int width = 10; // 网格的宽度
     public int height = 20; // 网格的高度
-    public float cellSize = 1f; // 每个网格单元的大小
+    public float cellSize = 1; // 每个网格单元的大小
     private Transform[,] gridArray; // 存储网格中每个位置的Transform
-
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 确保不会重复创建
+        }
+        else
+        {
+            Destroy(gameObject); // 如果已经存在实例，则销毁新对象
+        }
+    }
     void Start()
     {
         gridArray = new Transform[width, height];//初始化gridArray为一个新的二维数组，数组的大小由width和height决定。
