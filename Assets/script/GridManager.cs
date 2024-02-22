@@ -9,14 +9,14 @@ public class GridManager : MonoBehaviour
 
     void Start()
     {
-        gridArray = new Transform[width, height];
+        gridArray = new Transform[width, height];//初始化gridArray为一个新的二维数组，数组的大小由width和height决定。
     }
 
     // 将形状添加到网格中
-    public bool AddShapeToGrid(GameObject shape, Vector3 position)
+    public bool AddShapeToGrid(GameObject shape, Vector3 position)//参数定义，调用这个方法时需要提供这些参数
     {
-        Vector3Int gridPosition = WorldToGridPosition(position);
-        if (IsPositionInsideGrid(gridPosition) && IsCellEmpty(gridPosition))
+        Vector3Int gridPosition = WorldToGridPosition(position);//(position);传给该方法的参数
+        if (IsPositionInsideGrid(gridPosition) && IsCellEmpty(gridPosition))//;(gridPosition)传给该方法的参数
         {
             gridArray[gridPosition.x, gridPosition.y] = shape.transform;
             return true;
