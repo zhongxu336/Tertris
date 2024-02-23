@@ -122,8 +122,8 @@ public class ShapeGenerator : MonoBehaviour
         // 获取GridManager引用
         
         // 计算形状应该出现的位置
-        float startX = GridManager.Instance.width / 2.0f;
-        float startY = GridManager.Instance.height -2 ;
+        float startX = 0;
+        float startY = GridManager.Instance.height/2.0f - 1 ;// 网格高度的一半减去一定值，确保从顶部开始但稍微向下一点
         //  设置形状出现的初始位置
         currentShape.transform.position = new Vector3(startX, startY, 0);
     }

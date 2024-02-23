@@ -2,74 +2,73 @@ using UnityEngine;
 
 public class ShapeMover : MonoBehaviour
 {
-    public float FallSpeed { get; set; } // 形状的下落速
+    public float FallSpeed { get; set; } = 1.0f; // 形状的下落速度，可以在Inspector中调整
     private float lastFallTime; // 上次形状下落的时间
     private float lastMoveTime; // 上次形状移动的时间
     public float MoveInterval = 0.1f; // 按键移动间隔，可以根据需要调整
 
-    
-    
-    void Awake() {
-        FallSpeed = 1.0f; // 根据需要调整下落速度
-    }
     void FixedUpdate()
     {
-        // 用户输入，向下加速
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-           
-            MoveShape(Vector3.down * GridManager.Instance.cellSize);
-            lastFallTime = Time.time; // 重置下落时间
-        }
-        // 自动下落
-        else if (Time.time - lastFallTime > FallSpeed)
-        {
-            MoveShape(Vector3.down * GridManager.Instance.cellSize);
-            lastFallTime = Time.time; // 重置下落时间
-        }
-        
-        // 左移动
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            MoveShape(Vector3.left * GridManager.Instance.cellSize);
-        }
-
-        // 右移动
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            MoveShape(Vector3.right * GridManager.Instance.cellSize);
-        }
+        HandleVerticalMovement();
+        HandleHorizontalMovement();
     }
 
-
-    void MoveShape(Vector3 direction) {
-        
-        transform.position += direction; // 使用Time.fixedDeltaTime确保平滑移动;
-
-        if (!IsValidGridPos()) {
-            // 如果移动无效，撤回移动
-            transform.position -= direction; // 使用Time.fixedDeltaTime确保平滑移动;
-        } else {
-            // 更新最后移动时间，使形状响应下一次移动
+    void HandleVerticalMovement()
+    {
+        if (Time.time - lastFallTime > FallSpeed)
+        {
+            // 自动下落
+            MoveShape(Vector3.down * GridManager.Instance.cellSize);
             lastFallTime = Time.time;
         }
+        else if (Input.GetKey(KeyCode.DownArrow) && Time.time - lastMoveTime > MoveInterval)
+        {
+            // 按键加速下落
+            MoveShape(Vector3.down * GridManager.Instance.cellSize);
+            lastMoveTime = Time.time;
+        }
     }
 
-    bool IsValidGridPos() {
-        if (GridManager.Instance == null) {
-            Debug.LogError("GridManager is not found!");
-            return false;
+    void HandleHorizontalMovement()
+    {
+        Vector3 moveDirection = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            moveDirection = Vector3.left;
         }
-        foreach (Transform child in transform) {
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            moveDirection = Vector3.right;
+        }
+
+        if (moveDirection != Vector3.zero && Time.time - lastMoveTime > MoveInterval)
+        {
+            // 按键左右移动
+            MoveShape(moveDirection * GridManager.Instance.cellSize);
+            lastMoveTime = Time.time;
+        }
+    }
+
+    void MoveShape(Vector3 direction)
+    {
+        transform.position += direction;
+        if (!IsValidGridPos())
+        {
+            transform.position -= direction;
+        }
+    }
+
+    bool IsValidGridPos()
+    {
+        foreach (Transform child in transform)
+        {
             Vector3Int gridPosition = GridManager.Instance.WorldToGridPosition(child.position);
-
-            // 检查是否在画面范围内
-            if (!GridManager.Instance.IsPositionInsideGrid(gridPosition) || !GridManager.Instance.IsCellEmpty(gridPosition)) {
-                return false; // 移动无效
+            if (!GridManager.Instance.IsPositionInsideGrid(gridPosition) || !GridManager.Instance.IsCellEmpty(gridPosition))
+            {
+                return false;
             }
-            
         }
-        return true;// 移动有效
-       
+        return true;
     }
-   
 }
-
