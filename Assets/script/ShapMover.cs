@@ -63,7 +63,7 @@ public class ShapeMover : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            Vector3Int gridPosition = GridManager.Instance.WorldToGridPosition(child.position);
+            Vector3Int gridPosition = GridManager.Instance.WorldToGridPosition(child.position)+new Vector3Int(5,10,0);
             if (!GridManager.Instance.IsPositionInsideGrid(gridPosition) || !GridManager.Instance.IsCellEmpty(gridPosition))
             {
                 return false;
