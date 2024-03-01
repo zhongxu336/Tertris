@@ -29,12 +29,24 @@ public struct TetrominoData
     /// 4个坐标
     /// </summary>
     public Vector2Int[] cells { get; private set; }
+    //[,]中间打个逗号,是二维数组的声明
+    
+    /// <summary>
+    /// 这是墙踢测试的，是个二维数组，一共要测8个
+    /// </summary>
+
+    public Vector2Int[,] wallKicks { get; private set; }
+    
+
     public void Initialize()
     {
         //不会重命吗？
         //关联形状的字母和date里面具体的4个坐标点
         this.cells = Data.Cells[this.tetromino];
+        wallKicks = Data.WallKicks[tetromino];
     }
     
     
 }
+
+

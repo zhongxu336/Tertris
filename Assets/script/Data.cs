@@ -10,7 +10,7 @@ public static class Data
    public static readonly float cos = Mathf.Cos(Mathf.PI / 2f);
     public static readonly float sin = Mathf.Sin(Mathf.PI / 2f);
     /// <summary>
-    /// 这是旋转矩阵方法
+    /// 这是旋转矩阵方法，在二维旋转中，一个点(x, y)绕原点旋转θ角度后的新位置(x', y')
     /// </summary>
     //这个cos, sin, -sin, cos分别是索引0，1，2，3
     //在二维旋转中，一个点(x, y)绕原点旋转θ角度后的新位置(x', y')可以通过以下旋转矩阵计算得出
@@ -40,6 +40,7 @@ public static class Data
         { new Vector2Int(0, 0), new Vector2Int( 1, 0), new Vector2Int(-2, 0), new Vector2Int( 1,-2), new Vector2Int(-2, 1) },
         { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int( 2, 0), new Vector2Int(-1, 2), new Vector2Int( 2,-1) },
     };
+    
 
     private static readonly Vector2Int[,] WallKicksJLOSTZ = new Vector2Int[,] {
         { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(-1, 1), new Vector2Int(0,-2), new Vector2Int(-1,-2) },
@@ -51,6 +52,10 @@ public static class Data
         { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(-1,-1), new Vector2Int(0, 2), new Vector2Int(-1, 2) },
         { new Vector2Int(0, 0), new Vector2Int( 1, 0), new Vector2Int( 1, 1), new Vector2Int(0,-2), new Vector2Int( 1,-2) },
     };
+    
+    /// <summary>
+    /// 这是墙踢测试的方法，一共要测8个
+    /// </summary>
 
     public static readonly Dictionary<Tetromino, Vector2Int[,]> WallKicks = new Dictionary<Tetromino, Vector2Int[,]>()
     {

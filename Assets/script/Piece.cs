@@ -26,7 +26,7 @@ public class Piece : MonoBehaviour
     //因为 Tilemap 是三位向量的，所以这里声明一个三维向量
     public Vector3Int position { get; private set; }
     public int rotationIndex { get; private set; }
-    
+
 
     //方块的初始位置，和数据，需要传递对board面板的引用
     /// <summary>
@@ -62,6 +62,7 @@ public class Piece : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Rotate(-1);
+            Debug.LogError("This is an yunxingle anxiaQ");
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
@@ -136,19 +137,48 @@ public class Piece : MonoBehaviour
                     cell.x -= 0.5f;
                     cell.y -= 0.5f;
                     //不管浮点数是多少向上取整到最接近的整数。例如，Mathf.CeilToInt(2.1f)和Mathf.CeilToInt(2.9f)都将返回3。
-                    x =Mathf.CeilToInt( (cell.x * Data.RotationMatrix[0] * direction) + (cell.y * Data.RotationMatrix[1] * direction));
-                    y =Mathf.CeilToInt( (cell.x * Data.RotationMatrix[2] * direction) + (cell.y * Data.RotationMatrix[3] * direction));
+                    x = Mathf.CeilToInt((cell.x * Data.RotationMatrix[0] * direction) +
+                                        (cell.y * Data.RotationMatrix[1] * direction));
+                    y = Mathf.CeilToInt((cell.x * Data.RotationMatrix[2] * direction) +
+                                        (cell.y * Data.RotationMatrix[3] * direction));
                     break;
                 default:
                     //这个函数将给定的浮点数四舍五入到最接近的整数。Mathf.RoundToInt(2.5f)将返回3，而Mathf.RoundToInt(2.4f)将返回2。
-                     x =Mathf.RoundToInt( (cell.x * Data.RotationMatrix[0] * direction) + (cell.y * Data.RotationMatrix[1] * direction));
-                     y =Mathf.RoundToInt( (cell.x * Data.RotationMatrix[2] * direction) + (cell.y * Data.RotationMatrix[3] * direction));
+                    x = Mathf.RoundToInt((cell.x * Data.RotationMatrix[0] * direction) +
+                                         (cell.y * Data.RotationMatrix[1] * direction));
+                    y = Mathf.RoundToInt((cell.x * Data.RotationMatrix[2] * direction) +
+                                         (cell.y * Data.RotationMatrix[3] * direction));
                     break;
             }
-            
+
+            this.cells[i] = new Vector3Int(x, y, 0);
+
         }
     }
 
+    private bool TestWallKicks(int rotationIndex, int rotationDrection)
+    {
+        int wallkickIndex = GetWallkickIndex(rotationIndex, rotationDrection);
+    }
+
+    //墙踢索引
+    private int GetWallkickIndex(int rotationIndex, int rotationDrection)
+    {
+        //为每个旋转状态创造唯一的墙踢索引。由于每个旋转状态可能需要两种不同的墙踢测试（一个用于顺时针旋转，一个用于逆时针旋转），所以通过将rotationIndex乘以2，
+        //对于每个旋转状态，我们有两个索引：一个用于顺时针旋转（rotationIndex * 2），另一个用于逆时针旋转（rotationIndex * 2 - 1）。
+        //因为rotationIndex是4个数，而墙踢是8个数，使用这里*2
+        int wallkickIndex = rotationIndex * 2;
+        //如果旋转负数墙踢减一
+        if (rotationDrection < 0)
+        {
+            wallkickIndex--;
+        }
+        return Wrap(wallkickIndex, 0, this.data.wallKicks.GetLength(0));
+    }
+    
+    /// <summary>
+    ///要实现从0，1，2，3再到3，2，1，0的循环要用数学函数绕回
+    /// </summary>
     //要实现从0，1，2，3再到3，2，1，0的循环要用数学函数绕回
     private int Wrap(int input, int min, int max)
     {
@@ -163,3 +193,4 @@ public class Piece : MonoBehaviour
         }
     }
 }
+
