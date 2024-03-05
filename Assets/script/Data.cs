@@ -54,7 +54,7 @@ public static class Data
     };
     
     /// <summary>
-    /// 这是墙踢测试的方法，一共要测8个
+    /// 这是墙踢测试的字典索引方法，一共要测8个
     /// </summary>
 
     public static readonly Dictionary<Tetromino, Vector2Int[,]> WallKicks = new Dictionary<Tetromino, Vector2Int[,]>()
