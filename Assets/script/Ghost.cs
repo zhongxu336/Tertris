@@ -7,10 +7,10 @@ public class Ghost : MonoBehaviour
     public Tile tile;
     public Board board;
     public Piece trackingPiece;
-    
+
     //private set 表示在类的内部可以对 position 进行赋值，但在类的外部只能进行读取操作（get）
     public Tilemap tilemap { get; private set; }
-    public Vector3Int[]cells { get; private set; }
+    public Vector3Int[] cells { get; private set; }
     public Vector3Int position { get; private set; }
 
     private void Awake()
@@ -31,24 +31,55 @@ public class Ghost : MonoBehaviour
         Set();
     }
 
+
     private void Clear()
     {
-        
+        for (int i = 0; i < this.cells.Length; i++)
+        {
+            Vector3Int tilePosition = this.cells[i] + this.position;
+            this.tilemap.SetTile(tilePosition,null);
+        }
     }
 
     private void Copy()
     {
-        
+        for (int i = 0; i < this.cells.Length; i++)
+        {
+            this.cells[i] = this.trackingPiece.cells[i];
+        }
+
     }
 
     private void Drop()
     {
-        
+        Vector3Int position = this.trackingPiece.position;
+        //当前行
+        int current = position.y;
+        int bottom = -this.board.boardSize.y / 2 - 1;
+        //如果没有这行代码，我们想要的位置就会被占据，并返回flase
+        this.board.Clear(this.trackingPiece);
+        //从当前位置的顶部循环到底部
+        for (int row = current; row >= bottom; row--)
+        {
+            position.y = row;
+            if (this.board.IsValidPosition(this.trackingPiece, position))
+            {
+                this.position = position;
+            }
+            else
+            {
+                break;
+            }
+        }
+        this.board.Set(this.trackingPiece);
     }
-
     private void Set()
     {
-        
+        for (int i = 0; i < this.cells.Length; i++)
+        {
+            Vector3Int tilePosition = this.cells[i] + position;
+            this.tilemap.SetTile(tilePosition, this.tile);
+        }
     }
-    
+
 }

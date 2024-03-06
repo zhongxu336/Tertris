@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="98c5618d-0e6f-43cb-b8e5-8ea7a3567d38" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.俄罗斯方块2D版/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tetris.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tetris.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/Ghost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/script/Ghost.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/Piece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/script/Piece.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/Scenes/Tetris.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/cubeType1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/resource/1-1.png.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/Board.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/Board.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/Board.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/Board.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Board.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Data.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/Data.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Piece.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/ShapMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/fanhl/Documents/钟旭/同步空间/读研/俄罗斯方块/俄罗斯方块2D版/Assets/script/ShapMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f7c2be2138e4e2abe3d7bd0f8f9eb9a171a00/04/b65d200a/Vector3Int.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f7c2be2138e4e2abe3d7bd0f8f9eb9a171a00/26/54fb6e59/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f7c2be2138e4e2abe3d7bd0f8f9eb9a171a00/4f/cdfcc762/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f7c2be2138e4e2abe3d7bd0f8f9eb9a171a00/8d/38b01448/RectInt.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f7c2be2138e4e2abe3d7bd0f8f9eb9a171a00/ef/0bed5876/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53ffc69678264bfa831e43dbe967e894a000/10/8ed4792c/Tilemap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53ffc69678264bfa831e43dbe967e894a000/26/ddb79d7e/Tile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53ffc69678264bfa831e43dbe967e894a000/ea/ed9067b0/TileBase.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectId" id="2bzgcagy45JVZgcpvzDp4NDqD8S" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/fanhl/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/fanhl/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/fanhl/.local/share/Symbols/src&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="98c5618d-0e6f-43cb-b8e5-8ea7a3567d38" name="Changes" comment="" />
+      <created>1707223636307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707223636307</updated>
+      <workItem from="1707223642378" duration="32973000" />
+      <workItem from="1708497631059" duration="43781000" />
+      <workItem from="1708693011497" duration="4240000" />
+      <workItem from="1708700242534" duration="149077000" />
+      <workItem from="1709712004508" duration="1027000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1707242702514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707242702514</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <option name="closed" value="true" />
+      <created>1707242826563</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707242826563</updated>
+    </task>
+    <task id="LOCAL-00003" summary="颜色不对应俄罗斯方块形状版本">
+      <option name="closed" value="true" />
+      <created>1708355389061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708355389061</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改后颜色能对应形状">
+      <option name="closed" value="true" />
+      <created>1708355966235</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708355966235</updated>
+    </task>
+    <task id="LOCAL-00005" summary="调整位置后">
+      <option name="closed" value="true" />
+      <created>1708396111678</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708396111678</updated>
+    </task>
+    <task id="LOCAL-00006" summary="初定版">
+      <option name="closed" value="true" />
+      <created>1708498779171</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708498779171</updated>
+    </task>
+    <task id="LOCAL-00007" summary="加gridmanager">
+      <option name="closed" value="true" />
+      <created>1708521122604</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708521122604</updated>
+    </task>
+    <task id="LOCAL-00008" summary="勉强能用版本">
+      <option name="closed" value="true" />
+      <created>1708523539612</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708523539612</updated>
+    </task>
+    <task id="LOCAL-00009" summary="摄像机初版">
+      <option name="closed" value="true" />
+      <created>1708526506285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708526506285</updated>
+    </task>
+    <task id="LOCAL-00010" summary="摄像机初版">
+      <option name="closed" value="true" />
+      <created>1708580069460</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708580069460</updated>
+    </task>
+    <task id="LOCAL-00011" summary="大修改版本前的保存">
+      <option name="closed" value="true" />
+      <created>1708604505821</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708604505821</updated>
+    </task>
+    <task id="LOCAL-00012" summary="xx">
+      <option name="closed" value="true" />
+      <created>1708700707682</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708700707682</updated>
+    </task>
+    <task id="LOCAL-00013" summary="save1">
+      <option name="closed" value="true" />
+      <created>1709051171031</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709051171031</updated>
+    </task>
+    <task id="LOCAL-00014" summary="2">
+      <option name="closed" value="true" />
+      <created>1709215020005</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709215020005</updated>
+    </task>
+    <task id="LOCAL-00015" summary="1111">
+      <option name="closed" value="true" />
+      <created>1709300430759</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709300430759</updated>
+    </task>
+    <task id="LOCAL-00016" summary="版本1">
+      <option name="closed" value="true" />
+      <created>1709633433821</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709633433821</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="init" />
+    <MESSAGE value="1" />
+    <MESSAGE value="颜色不对应俄罗斯方块形状版本" />
+    <MESSAGE value="修改后颜色能对应形状" />
+    <MESSAGE value="调整位置后" />
+    <MESSAGE value="初定版" />
+    <MESSAGE value="加gridmanager" />
+    <MESSAGE value="勉强能用版本" />
+    <MESSAGE value="摄像机初版" />
+    <MESSAGE value="大修改版本前的保存" />
+    <MESSAGE value="xx" />
+    <MESSAGE value="save1" />
+    <MESSAGE value="2" />
+    <MESSAGE value="1111" />
+    <MESSAGE value="版本1" />
+    <option name="LAST_COMMIT_MESSAGE" value="版本1" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
