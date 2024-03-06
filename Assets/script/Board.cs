@@ -18,7 +18,7 @@ public class Board : MonoBehaviour
 
     //Vector2Int 也可以用于表示任何需要一对整数的场景
     public Vector2Int boardSize = new Vector2Int(10, 20);
-
+    public GameObject GameoverUI;
     /// <summary>
     /// 这个方法规定了游戏方格的矩形尺寸，返回一个矩形起始位置和矩形尺寸的值
     /// </summary>
@@ -41,7 +41,7 @@ public class Board : MonoBehaviour
     {
         //当前游戏对象及其子对象中查找 Tilemap 组件,并将其引用存储在 tilemap 变量中。
         this.tilemap = GetComponentInChildren<Tilemap>();
-        // 为它 初始化：给它赋值
+        // 为它 初始化：给它赋值,就是当前的piece实例
         this.activePiece = GetComponentInChildren<Piece>();
 
         //调用生成的函数并初始化,索引每个元素并调用函数的初始化，把颜色块和方块的形状和坐标关联上
@@ -69,15 +69,22 @@ public class Board : MonoBehaviour
         }else
         {
             GameOver();
+            
         }
     }
 
     private void GameOver()
     {
-        this.tilemap.ClearAllTiles();
+        GameoverUI.SetActive(true);
+        Invoke("ClearAllTiles",3);
         //...
     }
 
+    private void ClearAllTiles()
+    {
+        GameoverUI.SetActive(false);
+        this.tilemap.ClearAllTiles();
+    }
     /// <summary>
     /// 将俄罗斯方块形状的位置在tilemap上进行可视化表现。
     /// Piece对象的每个单元格，计算该单元格在Tilemap中的实际位置，并在该位置上设置相应的瓦片，以此来展示形状。
