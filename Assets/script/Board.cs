@@ -37,6 +37,9 @@ public class Board : MonoBehaviour
         }
     }
 
+    // 第一步： 创建一个 isGameOver 的变量，用来存储当前是否游戏结束
+    private bool isGameOver = false;
+
     private void Awake()
     {
         //当前游戏对象及其子对象中查找 Tilemap 组件,并将其引用存储在 tilemap 变量中。
@@ -58,6 +61,12 @@ public class Board : MonoBehaviour
 
     public void SpawnPiece()
     {
+        // 第三步， 如何当前状态 isGameOver 为true时，不走该方法的后续逻辑
+        if (isGameOver)
+        {
+            return;
+        }
+        
         //得到一个随机数，然后把随机数给索引
         int random = UnityEngine.Random.Range(0, this.tetrominoes.Length);
         //什么意思
@@ -75,6 +84,9 @@ public class Board : MonoBehaviour
 
     private void GameOver()
     {
+        // 第2步： 在游戏结束时，将 isGameOver 状态设置成 true
+        isGameOver = true;
+        
         GameoverUI.SetActive(true);
         Invoke("ClearAllTiles",3);
         //...
@@ -84,6 +96,9 @@ public class Board : MonoBehaviour
     {
         GameoverUI.SetActive(false);
         this.tilemap.ClearAllTiles();
+
+        // 第4步： 在移除 Game Over 时， 将 isGameOver 状态恢复成 false
+        isGameOver = false;
     }
     /// <summary>
     /// 将俄罗斯方块形状的位置在tilemap上进行可视化表现。
