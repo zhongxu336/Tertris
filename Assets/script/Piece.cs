@@ -162,7 +162,10 @@ public class Piece : MonoBehaviour
         if (valid)
         {
             this.position = newPosition;
-            this.lockTime = 0f;
+            if (translation==Vector2Int.down)
+            {
+                this.lockTime = 0f;
+            }
         }
 
         return valid;
