@@ -19,6 +19,12 @@ public class Board : MonoBehaviour
     //Vector2Int 也可以用于表示任何需要一对整数的场景
     public Vector2Int boardSize = new Vector2Int(10, 20);
     public GameObject GameoverUI;
+    
+    /// <summary>
+    /// 第一步：声明一个变量用来声明游戏是否结束 
+    /// </summary>
+    public static bool isGameOver;
+
     /// <summary>
     /// 这个方法规定了游戏方格的矩形尺寸，返回一个矩形起始位置和矩形尺寸的值
     /// </summary>
@@ -58,6 +64,12 @@ public class Board : MonoBehaviour
 
     public void SpawnPiece()
     {
+        // 第三步，如果游戏已结束，不再生成Piece
+        if (isGameOver)
+        {
+            return;
+        }
+        
         //得到一个随机数，然后把随机数给索引
         int random = UnityEngine.Random.Range(0, this.tetrominoes.Length);
         //什么意思
@@ -75,6 +87,9 @@ public class Board : MonoBehaviour
 
     private void GameOver()
     {
+        // 第二步：将游戏结束状态变成 true
+        isGameOver = true;
+
         GameoverUI.SetActive(true);
         Invoke("ClearAllTiles",3);
         //...
@@ -84,6 +99,12 @@ public class Board : MonoBehaviour
     {
         GameoverUI.SetActive(false);
         this.tilemap.ClearAllTiles();
+        
+        // 第4步： 过三秒，清空界面，重新开始
+        // 将 isGameOver 设置成 false （继续游戏）
+        isGameOver = false;
+        // 重新开始生成 Piece
+        SpawnPiece();
     }
     /// <summary>
     /// 将俄罗斯方块形状的位置在tilemap上进行可视化表现。
