@@ -69,6 +69,12 @@ public class Piece : MonoBehaviour
 
     private void Update()
     {
+        // 第5步，若游戏结束，不再接受输入
+        if (Board.isGameOver)
+        {
+            return;
+        }
+        
         //如果是初始形状，位置没有变化，不断的clear和set时，方块在视觉上保持不变
         this.board.Clear(this);
         this.lockTime += Time.deltaTime;

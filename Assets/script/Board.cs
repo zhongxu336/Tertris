@@ -23,7 +23,7 @@ public class Board : MonoBehaviour
     /// <summary>
     /// 第一步：声明一个变量用来声明游戏是否结束 
     /// </summary>
-    private bool isGameOver;
+    public static bool isGameOver;
 
     /// <summary>
     /// 这个方法规定了游戏方格的矩形尺寸，返回一个矩形起始位置和矩形尺寸的值
