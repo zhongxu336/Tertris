@@ -110,9 +110,14 @@ public class Piece : MonoBehaviour
 
         if (Time.time >= this.stepTime)
         {
-            Step();
+            Step(); //1
         }
-        this.board.Set(this);
+
+        if (Board.isGameOver)
+        {
+            return;
+        }
+        this.board.Set(this); //8
     }
 
     private void Step()
@@ -123,7 +128,7 @@ public class Piece : MonoBehaviour
         //如果锁定的时间超过了指定的时间量，那它将被锁定
         if (this.lockTime >= this.lockDelay)
         {
-            Lock();
+            Lock(); //2
         }
     }
 
@@ -139,9 +144,9 @@ public class Piece : MonoBehaviour
 
     private void Lock()
     {
-        this.board.Set(this);
+        this.board.Set(this); //3
         this.board.ClearLines();
-        this.board.SpawnPiece();
+        this.board.SpawnPiece(); //4
     }
 
     //移动是二维的，而坐标点是3维的

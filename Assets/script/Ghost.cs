@@ -52,6 +52,10 @@ public class Ghost : MonoBehaviour
 
     private void Drop()
     {
+        if (Board.isGameOver)
+        {
+            return;
+        }
         Vector3Int position = this.trackingPiece.position;
         //当前行
         int current = position.y;
@@ -75,6 +79,10 @@ public class Ghost : MonoBehaviour
     }
     private void Set()
     {
+        if (Board.isGameOver)
+        {
+            return;
+        }
         for (int i = 0; i < this.cells.Length; i++)
         {
             Vector3Int tilePosition = this.cells[i] + position;

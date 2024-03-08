@@ -74,19 +74,20 @@ public class Board : MonoBehaviour
         int random = UnityEngine.Random.Range(0, this.tetrominoes.Length);
         //什么意思
         TetrominoData data = this.tetrominoes[random];
-        this.activePiece.Initialize(this, spawnPosition, data);
-        if (IsValidPosition(this.activePiece, this.spawnPosition))
+        this.activePiece.Initialize(this, spawnPosition, data);//5
+        if (IsValidPosition(this.activePiece, this.spawnPosition))//6
         {
             Set(this.activePiece);
         }else
         {
-            GameOver();
+            GameOver();//7
             
         }
     }
 
     private void GameOver()
     {
+        Debug.Log("111111");
         // 第二步：将游戏结束状态变成 true
         isGameOver = true;
 
@@ -113,6 +114,7 @@ public class Board : MonoBehaviour
     /// <param name="piece"></param>
     public void Set(Piece piece)
     {
+        Debug.Log("22222");
         for (int i = 0; i < piece.cells.Length; i++)
         {
             Vector3Int tilePosition = piece.cells[i] + piece.position;
