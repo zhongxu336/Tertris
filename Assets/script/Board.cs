@@ -87,7 +87,6 @@ public class Board : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("111111");
         // 第二步：将游戏结束状态变成 true
         isGameOver = true;
 
